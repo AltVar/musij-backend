@@ -2,8 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
-// Load environment variables
-dotenv.config();
+// Load environment variables (only in development, Railway auto-injects in production)
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 // Import routes
 const stripeRoutes = require('./routes/stripe');
