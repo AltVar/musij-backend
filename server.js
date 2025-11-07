@@ -34,6 +34,8 @@ app.get('/api/health', (req, res) => {
     status: 'OK',
     message: 'Musij Backend API is running',
     timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV,
+    frontendUrl: process.env.FRONTEND_URL,
     apis: {
       stripe: !!process.env.STRIPE_SECRET_KEY,
       spotify: !!process.env.SPOTIFY_CLIENT_ID,
